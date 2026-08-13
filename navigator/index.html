@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ONE PALM · Навигатор по Пхукету</title>
+<meta name="description" content="Приложения, обменники, магазины, рынки, клиники и экстренные номера. Всё, что нужно в первые дни на острове.">
+<link rel="canonical" href="https://andreikabylin-maker.github.io/onepalm-web/navigator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ONE PALM">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="ONE PALM · Навигатор по Пхукету">
+<meta property="og:description" content="Приложения, обменники, магазины, рынки, клиники и экстренные номера. Всё, что нужно в первые дни на острове.">
+<meta property="og:url" content="https://andreikabylin-maker.github.io/onepalm-web/navigator/">
+<meta property="og:image" content="https://andreikabylin-maker.github.io/onepalm-web/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%8C%B4</text></svg>">
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0}
+</style>
+</head>
+<body>
+<style>
+  :root {
+    color-scheme: dark;
+    --ink:        #0B110E;
+    --surface:    #131C17;
+    --surface-2:  #18231D;
+    --line:       #263329;
+    --line-soft:  #1E2A23;
+    --text:       #EAE5D7;
+    --muted:      #92A395;
+    --muted-2:    #6E7F73;
+    --accent:     #F5C842;
+    --accent-ink: #1A1405;
+    --accent-dim: #6E5C17;
+    --alarm:      #E4785C;
+    --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+  ::selection { background: var(--accent); color: var(--accent-ink); }
+  a { color: var(--accent); }
+
+  .wrap { width: 100%; max-width: 46rem; margin-inline: auto; padding-inline: 1.2rem; }
+
+  header {
+    padding: 2.6rem 0 2rem;
+    background: radial-gradient(80% 60% at 50% 0%, rgba(245,200,66,.12), rgba(245,200,66,0) 70%);
+  }
+  .brandmark {
+    display: inline-flex; align-items: baseline; gap: .5rem;
+    font-size: .74rem; font-weight: 800; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--text);
+  }
+  .brandmark i { font-style: normal; color: var(--accent); letter-spacing: 0; font-size: 1rem; }
+
+  h1 {
+    margin: .8rem 0 .6rem;
+    font-size: clamp(1.9rem, 7vw, 2.8rem);
+    font-weight: 800; letter-spacing: -0.035em; line-height: 1;
+    text-transform: uppercase; text-wrap: balance;
+  }
+  .lede { color: var(--muted); margin: 0; font-size: 1.02rem; }
+
+  section { padding-block: 2.4rem; border-top: 1px solid var(--line-soft); }
+
+  h2 {
+    margin: 0 0 .3rem;
+    font-size: 1.15rem; font-weight: 800;
+    letter-spacing: -0.02em; text-transform: uppercase;
+  }
+  .note { margin: 0 0 1.1rem; font-size: .87rem; color: var(--muted); }
+
+  /* apps */
+
+  .apps { display: grid; gap: .7rem; }
+  @media (min-width: 34rem) { .apps { grid-template-columns: 1fr 1fr; } }
+
+  .app {
+    display: grid;
+    grid-template-columns: 2.9rem 1fr;
+    gap: .85rem;
+    align-items: start;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: .9rem;
+  }
+  .icon {
+    width: 2.9rem; height: 2.9rem;
+    border-radius: 11px;
+    display: grid; place-items: center;
+    font-weight: 800; font-size: 1.15rem;
+    color: #fff; letter-spacing: -0.02em;
+  }
+  .app b { display: block; font-size: .97rem; }
+  .app p { margin: .1rem 0 .5rem; font-size: .84rem; color: var(--muted); line-height: 1.35; }
+  .stores { display: flex; gap: .4rem; flex-wrap: wrap; }
+  .stores a {
+    font-size: .72rem; font-weight: 700; letter-spacing: .04em;
+    text-transform: uppercase; text-decoration: none;
+    color: var(--muted); border: 1px solid var(--line);
+    padding: .25rem .5rem; border-radius: 3px;
+  }
+  .stores a:hover { color: var(--accent); border-color: var(--accent-dim); }
+  .stores a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* places */
+
+  .places { display: grid; gap: .55rem; }
+  .place {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent-dim);
+    border-radius: 4px;
+    padding: .85rem .95rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .place:hover { background: var(--surface-2); border-left-color: var(--accent); }
+  .place:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .place b { display: block; font-size: .97rem; }
+  .place span { display: block; font-size: .84rem; color: var(--muted); margin-top: .12rem; }
+  .place em {
+    font-style: normal; font-size: .7rem; font-weight: 700;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--accent); display: block; margin-top: .4rem;
+  }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 1.1rem;
+    display: grid; gap: .5rem;
+  }
+  .panel.flag { border-left: 3px solid var(--accent); }
+  .panel p { margin: 0; font-size: .9rem; color: var(--muted); }
+
+  /* emergency */
+
+  .sos { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+  .sos a, .sos div {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+    background: var(--surface); padding: .8rem .95rem;
+    text-decoration: none; color: inherit;
+  }
+  .sos a:hover { background: var(--surface-2); }
+  .sos b { font-size: .93rem; font-weight: 600; }
+  .sos i {
+    font-style: normal; font-size: 1.15rem; font-weight: 800;
+    color: var(--alarm); font-variant-numeric: tabular-nums; white-space: nowrap;
+  }
+  .sos .mine i { color: var(--accent); }
+
+  .todo {
+    border: 1px dashed var(--accent-dim);
+    border-radius: 4px; padding: .9rem 1rem;
+    font-size: .85rem; color: var(--muted);
+    background: rgba(245,200,66,.05);
+  }
+
+  footer {
+    padding-block: 2rem 3rem;
+    border-top: 1px solid var(--line-soft);
+    color: var(--muted-2); font-size: .82rem; text-align: center;
+  }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<header>
+  <div class="wrap">
+    <div class="brandmark"><i>🌴</i> ONE PALM</div>
+    <h1>Навигатор<br>по Пхукету</h1>
+    <p class="lede">Всё, что нужно в первые дни: какие приложения поставить, где менять деньги, куда ехать за продуктами и кому звонить, если что-то случилось. Сохрани страницу в закладки, все адреса открываются в Google Maps одним касанием.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Приложения</h2>
+    <p class="note">Поставь до вылета или в первый день. Без первых четырёх тут тяжело.</p>
+
+    <div class="apps">
+
+      <div class="app">
+        <div class="icon" style="background:#1A73E8">G</div>
+        <div>
+          <b>Google Карты</b>
+          <p>Обязательно. Единственный навигатор, который тут нормально работает.</p>
+          <div class="stores">
+            <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.maps">Android</a>
+            <a href="https://apps.apple.com/th/search?term=Google%20Maps">iPhone</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="app">
+        <div class="icon" style="background:#00B14F">G</div>
+        <div>
+          <b>Grab</b>
+          <p>Как Яндекс: такси и доставка еды. Основное приложение на каждый день.</p>
+          <div class="stores">
+            <a href="https://play.google.com/store/apps/details?id=com.grabtaxi.passenger">Android</a>
+            <a href="https://apps.apple.com/th/search?term=Grab">iPhone</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="app">
+        <div class="icon" style="background:#34A853">B</div>
+        <div>
+          <b>Bolt</b>
+          <p>Второе такси. Держи оба, цены отличаются, иногда сильно.</p>
+          <div class="stores">
+            <a href="https://play.google.com/store/apps/details?id=ee.mtakso.client">Android</a>
+            <a href="https://apps.apple.com/th/search?term=Bolt%20ride">iPhone</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="app">
+        <div class="icon" style="background:#06C755">L</div>
+        <div>
+          <b>LINE</b>
+          <p>Тут все общаются в нём: хозяин квартиры, мастер, доставка воды, школа.</p>
+          <div class="stores">
+            <a href="https://play.google.com/store/apps/details?id=jp.naver.line.android">Android</a>
+            <a href="https://apps.apple.com/th/search?term=LINE">iPhone</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="app">
+        <div class="icon" style="background:#F57224">L</div>
+        <div>
+          <b>Lazada</b>
+          <p>Маркетплейс, как Wildberries. Тут дешевле, чем в магазинах, почти всё.</p>
+          <div class="stores">
+            <a href="https://play.google.com/store/apps/details?id=com.lazada.android">Android</a>
+            <a href="https://apps.apple.com/th/search?term=Lazada">iPhone</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="app">
+        <div class="icon" style="background:#287DFA">T</div>
+        <div>
+          <b>Trip.com</b>
+          <p>Экскурсии, билеты и отели по нормальным ценам, без наценки уличных агентов.</p>
+          <div class="stores">
+            <a href="https://play.google.com/store/apps/details?id=ctrip.english">Android</a>
+            <a href="https://apps.apple.com/th/search?term=Trip.com">iPhone</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="app">
+        <div class="icon" style="background:#4285F4">П</div>
+        <div>
+          <b>Google Переводчик</b>
+          <p>Обязательно. Скачай тайский офлайн и включи перевод камерой, читать меню и вывески.</p>
+          <div class="stores">
+            <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.translate">Android</a>
+            <a href="https://apps.apple.com/th/search?term=Google%20Translate">iPhone</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Где менять деньги</h2>
+    <p class="note">Не меняй в аэропорту и в отелях, там курс худший на острове.</p>
+
+    <div class="places">
+      <a class="place" href="https://www.google.com/maps/search/?api=1&amp;query=Central%20Phuket%20Festival">
+        <b>Central Phuket, обменники</b>
+        <span>Третий этаж основного здания, где McDonald's, рядом с банками. Самый выгодный наличный курс из общедоступных.</span>
+        <em>Открыть в Google Maps</em>
+      </a>
+    </div>
+
+    <div class="panel flag" style="margin-top:.9rem">
+      <b>Нужен курс лучше, доставка наличных, крупная сумма или обмен крипты?</b>
+      <p>Пиши мне, у меня есть проверенный партнёр. Курс будет выгоднее, чем в торговом центре, и деньги привезут.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Продукты и всё для дома</h2>
+    <p class="note">Чтобы было понятно, что есть что.</p>
+
+    <div class="places">
+      <a class="place" href="https://www.google.com/maps/search/?api=1&amp;query=Big%20C%20Phuket">
+        <b>Big C</b>
+        <span>Как Лента. Продукты, бытовая химия, техника. Есть в нескольких районах.</span>
+        <em>Открыть в Google Maps</em>
+      </a>
+      <a class="place" href="https://www.google.com/maps/search/?api=1&amp;query=Lotus%27s%20Phuket">
+        <b>Lotus's</b>
+        <span>Тоже как Лента. Часто ближе к дому, чем Big C.</span>
+        <em>Открыть в Google Maps</em>
+      </a>
+      <a class="place" href="https://www.google.com/maps/search/?api=1&amp;query=Makro%20Phuket">
+        <b>Makro</b>
+        <span>Как Метро. Оптовые объёмы и цены, выгодно закупаться на месяц.</span>
+        <em>Открыть в Google Maps</em>
+      </a>
+      <a class="place" href="https://www.google.com/maps/search/?api=1&amp;query=SuperCheap%20Phuket">
+        <b>SuperCheap</b>
+        <span>Огромный магазин, где есть всё и очень дёшево. Первая закупка для новой квартиры делается здесь.</span>
+        <em>Открыть в Google Maps</em>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Рынки</h2>
+    <p class="note">Еда, фрукты, одежда и вечерняя движуха. У каждого свой день и характер.</p>
+
+    <div class="places">
+      <a class="place" href="https://www.google.com/maps/search/?api=1&amp;query=Chillva%20Market%20Phuket">
+        <b>Chillva Market</b>
+        <span>Молодёжный, вагончики, стрит-фуд и музыка. Лучший первый рынок для знакомства с тайской едой.</span>
+        <em>Открыть в Google Maps</em>
+      </a>
+      <a class="place" href="https://www.google.com/maps/search/?api=1&amp;query=Naka%20Weekend%20Market%20Phuket">
+        <b>Phuket Weekend Market (Naka)</b>
+        <span>Огромный рынок выходного дня. Одежда, фрукты, всё подряд, самые низкие цены.</span>
+        <em>Открыть в Google Maps</em>
+      </a>
+      <a class="place" href="https://www.google.com/maps/search/?api=1&amp;query=Lard%20Yai%20Walking%20Street%20Phuket%20Old%20Town">
+        <b>Lard Yai, Старый город</b>
+        <span>Воскресная пешеходная улица в Old Town. Самое красивое место острова по атмосфере.</span>
+        <em>Открыть в Google Maps</em>
+      </a>
+      <a class="place" href="https://www.google.com/maps/search/?api=1&amp;query=Banzaan%20Fresh%20Market%20Patong">
+        <b>Banzaan, Патонг</b>
+        <span>Свежие морепродукты и фрукты, рядом с Jungceylon. Наверху фудкорт, где приготовят купленное.</span>
+        <em>Открыть в Google Maps</em>
+      </a>
+      <a class="place" href="https://www.google.com/maps/search/?api=1&amp;query=Malin%20Plaza%20Patong">
+        <b>Malin Plaza, Патонг</b>
+        <span>Вечерний фудкорт под открытым небом. Дёшево и вкусно.</span>
+        <em>Открыть в Google Maps</em>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Спорт и движение</h2>
+
+    <div class="places">
+      <a class="place" href="https://www.google.com/maps/search/?api=1&amp;query=Rama%209%20Park%20Phuket">
+        <b>Парк Rama 9, Старый город</b>
+        <span>Сетки для бадминтона, баскетбольные кольца, футбольное поле, дорожки для бега и много чего ещё. Место, где проще всего познакомиться с людьми.</span>
+        <em>Открыть в Google Maps</em>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Экстренные номера</h2>
+    <p class="note">Сохрани в телефон прямо сейчас, а не когда понадобится.</p>
+
+    <div class="sos">
+      <a href="tel:191"><b>Полиция</b><i>191</i></a>
+      <a href="tel:1669"><b>Скорая помощь</b><i>1669</i></a>
+      <a href="tel:199"><b>Пожарные</b><i>199</i></a>
+      <a href="tel:1155"><b>Туристическая полиция, говорят по-английски</b><i>1155</i></a>
+      <a href="tel:1196"><b>Морская полиция</b><i>1196</i></a>
+      <a class="mine" href="https://t.me/OnePalmPhuket_bot"><b>Андрей, ONE PALM. Любая непонятная ситуация</b><i>Telegram</i></a>
+    </div>
+
+    <p class="note" style="margin-top:.9rem">Если авария, полиция или больница: сначала звони мне, потом разбирайся. Не подписывай ничего на тайском и не признавай вину на месте.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Связь</h2>
+    <div class="panel">
+      <b>eSIM до вылета</b>
+      <p>Ставится заранее и включается, как только сел самолёт. Интернет нужен именно в аэропорту, а не потом. Какую брать, скажу лично.</p>
+    </div>
+    <div class="panel" style="margin-top:.6rem">
+      <b>Тайская симка AIS</b>
+      <p>Оформляем в официальном магазине, а не на стойке в аэропорту, там переплата в разы. Нужен паспорт.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Клиники</h2>
+    <p class="note">Первое правило: не езжай сразу в самый дорогой госпиталь. Разница в цене за одно и то же лечение бывает в несколько раз.</p>
+
+    <div class="places">
+      <a class="place" href="https://www.google.com/maps/search/?api=1&amp;query=Dibuk%20Hospital%20Phuket">
+        <b>Dibuk Hospital</b>
+        <span>Сюда едем по умолчанию: температура, живот, ухо, ссадины после байка, анализы, приём врача. В разы дешевле, чем Bangkok Hospital, при том же качестве по обычным вопросам.</span>
+        <em>Открыть в Google Maps</em>
+      </a>
+      <a class="place" href="https://www.google.com/maps/search/?api=1&amp;query=Bangkok%20Hospital%20Phuket">
+        <b>Bangkok Hospital Phuket</b>
+        <span>Большой частный госпиталь для серьёзных случаев: переломы, операции, госпитализация. Дорого, но работает со страховыми напрямую. Перед поездкой лучше позвони мне.</span>
+        <em>Открыть в Google Maps</em>
+      </a>
+    </div>
+
+    <div class="panel flag" style="margin-top:.9rem">
+      <b>Не понимаешь, куда ехать?</b>
+      <p>Напиши мне до того, как поедешь. Скажу, куда именно с твоим случаем и что говорить на ресепшене, чтобы страховка сработала.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  ONE PALM · Пхукет · <a href="https://t.me/OnePalmPhuket_bot">@OnePalmPhuket_bot</a>
+</footer>
+
+</body>
+</html>
