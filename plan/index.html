@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ONE PALM · План переезда, образец</title>
-<meta name="description" content="Как выглядит персональный план переезда в Таиланд: по шагам, по датам, от подготовки документов до первого месяца на острове.">
+<meta name="description" content="Как выглядит персональный план переезда в Таиланд: схема по шагам и датам, от документов до первого месяца на острове.">
 <link rel="canonical" href="https://onepalm.club/plan/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ONE PALM">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:title" content="ONE PALM · План переезда, образец">
-<meta property="og:description" content="Как выглядит персональный план переезда в Таиланд: по шагам, по датам, от подготовки документов до первого месяца на острове.">
+<meta property="og:description" content="Схема переезда по шагам и датам: документы, логистика, первая неделя, виза и бюджет.">
 <meta property="og:url" content="https://onepalm.club/plan/">
 <meta property="og:image" content="https://onepalm.club/og.png">
 <meta property="og:image:width" content="1200">
@@ -38,127 +38,90 @@
     --accent:     #F5C842;
     --accent-ink: #1A1405;
     --accent-dim: #6E5C17;
-    --alarm:      #E4785C;
     --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   }
-
   * { box-sizing: border-box; }
-
   body {
-    margin: 0;
-    background: var(--ink);
-    color: var(--text);
-    font-family: var(--font-ui);
-    font-size: 1rem;
-    line-height: 1.55;
+    margin: 0; background: var(--ink); color: var(--text);
+    font-family: var(--font-ui); font-size: 1rem; line-height: 1.55;
   }
   ::selection { background: var(--accent); color: var(--accent-ink); }
   a { color: var(--accent); }
 
-  .wrap { width: 100%; max-width: 48rem; margin-inline: auto; padding-inline: 1.2rem; }
+  .wrap { width: 100%; max-width: 62rem; margin-inline: auto; padding-inline: 1.2rem; }
 
   header {
-    padding: 2.6rem 0 1.8rem;
+    padding: 2.4rem 0 1.4rem;
     background: radial-gradient(80% 60% at 50% 0%, rgba(245,200,66,.12), rgba(245,200,66,0) 70%);
   }
   .brandmark {
     display: inline-flex; align-items: baseline; gap: .5rem;
     font-size: .74rem; font-weight: 800; letter-spacing: .3em;
-    text-transform: uppercase; color: var(--text);
+    text-transform: uppercase;
   }
   .brandmark i { font-style: normal; color: var(--accent); letter-spacing: 0; font-size: 1rem; }
-
   h1 {
     margin: .8rem 0 .6rem;
-    font-size: clamp(1.9rem, 7vw, 2.8rem);
+    font-size: clamp(1.9rem, 6vw, 2.8rem);
     font-weight: 800; letter-spacing: -0.035em; line-height: 1;
-    text-transform: uppercase; text-wrap: balance;
+    text-transform: uppercase;
   }
-  .lede { color: var(--muted); margin: 0 0 1.3rem; font-size: 1.02rem; }
-
+  .lede { color: var(--muted); margin: 0 0 1.1rem; font-size: 1.02rem; max-width: 44rem; }
   .sample {
-    border: 1px dashed var(--accent-dim);
-    background: rgba(245,200,66,.05);
-    border-radius: 4px; padding: .9rem 1rem;
-    font-size: .87rem; color: var(--muted);
+    border: 1px dashed var(--accent-dim); background: rgba(245,200,66,.05);
+    border-radius: 4px; padding: .85rem 1rem; font-size: .87rem; color: var(--muted);
+    max-width: 44rem;
   }
   .sample b { color: var(--accent); }
 
-  section { padding-block: 2.2rem; border-top: 1px solid var(--line-soft); }
-  h2 {
-    margin: 0 0 .3rem;
-    font-size: 1.15rem; font-weight: 800;
-    letter-spacing: -0.02em; text-transform: uppercase;
+  /* карта */
+  .board { padding-block: 1.6rem 2rem; }
+  .legend {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 1rem;
+    margin-bottom: .8rem; font-size: .8rem; color: var(--muted-2);
   }
-  .note { margin: 0 0 1.2rem; font-size: .87rem; color: var(--muted); }
-
-  /* roadmap */
-
-  .road { position: relative; padding-left: 1.7rem; }
-  .road::before {
-    content: ""; position: absolute; left: .36rem; top: .4rem; bottom: .4rem;
-    width: 2px; background: linear-gradient(var(--accent-dim), var(--line));
+  .legend b { color: var(--accent); font-size: .95rem; }
+  .scroller {
+    overflow-x: auto; overflow-y: hidden;
+    border: 1px solid var(--line); border-radius: 6px;
+    background:
+      radial-gradient(circle at 1px 1px, rgba(146,163,149,.16) 1px, transparent 0) 0 0/26px 26px,
+      var(--surface);
+    padding: .5rem;
+    -webkit-overflow-scrolling: touch;
   }
+  svg.map { display: block; min-width: 1180px; width: 100%; height: auto; }
 
-  .phase { position: relative; margin-bottom: 1rem; }
-  .phase::before {
-    content: ""; position: absolute; left: -1.53rem; top: 1.15rem;
-    width: .8rem; height: .8rem; border-radius: 99px;
-    background: var(--ink); border: 2px solid var(--accent-dim);
+  .map .spine { stroke: var(--accent-dim); stroke-width: 3; stroke-linecap: round; }
+  .map .link  { stroke: var(--line); stroke-width: 2; }
+  .map .dot   { fill: var(--accent); stroke: var(--ink); stroke-width: 3; }
+  .map .card  { fill: var(--surface-2); stroke: var(--line); stroke-width: 1.5; }
+  .map .edge  { fill: var(--accent-dim); }
+  .map text   { font-family: var(--font-ui); }
+  .map .ttl   { fill: var(--text); font-size: 17px; font-weight: 800; letter-spacing: -.2px; }
+  .map .itm   { fill: var(--muted); font-size: 15px; }
+  .map .itm.mine { fill: var(--text); font-weight: 600; }
+  .map .bullet { fill: var(--muted-2); }
+  .map .bullet.mine { fill: var(--accent); }
+  .map .when  {
+    fill: var(--accent); font-size: 13px; font-weight: 800;
+    letter-spacing: 1.4px; text-anchor: middle;
   }
-  .phase.key::before { background: var(--accent); border-color: var(--accent); }
-
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 5px;
-    padding: 1rem 1.1rem;
+  .map .spine-cap {
+    fill: var(--muted-2); font-size: 12px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
   }
-  .phase.key .card { border-left: 3px solid var(--accent); }
+  .map .spine-cap.end { text-anchor: end; }
 
-  .when {
-    display: inline-block;
-    font-size: .68rem; font-weight: 800; letter-spacing: .12em;
-    text-transform: uppercase; color: var(--accent-ink);
-    background: var(--accent); border-radius: 3px;
-    padding: .18rem .45rem; margin-bottom: .5rem;
-  }
-  .phase:not(.key) .when { background: none; color: var(--muted-2); border: 1px solid var(--line); padding: .16rem .43rem; }
+  .hint { margin: .6rem 0 0; font-size: .8rem; color: var(--muted-2); }
 
-  .card h3 { margin: 0 0 .5rem; font-size: 1.02rem; font-weight: 700; letter-spacing: -.01em; }
-  .card ul { margin: 0; padding-left: 1.05rem; }
-  .card li { font-size: .89rem; color: var(--muted); margin-bottom: .3rem; line-height: 1.45; }
-  .card li b { color: var(--text); font-weight: 600; }
-  .card li:last-child { margin-bottom: 0; }
-  .mine {
-    display: inline-block; margin-left: .3rem;
-    font-size: .64rem; font-weight: 800; letter-spacing: .1em;
-    text-transform: uppercase; color: var(--accent);
-    border: 1px solid var(--accent-dim); border-radius: 3px;
-    padding: .05rem .3rem; vertical-align: .1em;
-  }
-
-  /* budget */
-
-  .money { display: grid; gap: .55rem; }
-  .row {
-    display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
-    background: var(--surface); border: 1px solid var(--line);
-    border-radius: 4px; padding: .75rem .95rem;
-  }
-  .row span { font-size: .92rem; }
-  .row i {
-    font-style: normal; font-weight: 800; color: var(--accent);
-    font-variant-numeric: tabular-nums; white-space: nowrap;
-  }
-  .row.total { border-color: var(--accent-dim); background: var(--surface-2); }
-  .row.total span { font-weight: 700; }
-
+  section { padding-block: 2rem; border-top: 1px solid var(--line-soft); }
+  h2 { margin: 0 0 .8rem; font-size: 1.15rem; font-weight: 800; letter-spacing: -.02em; text-transform: uppercase; }
   .cta { display: grid; gap: .7rem; }
-  .cta p { margin: 0; color: var(--muted); font-size: .95rem; }
+  .cta p { margin: 0; color: var(--muted); font-size: .95rem; max-width: 44rem; }
   .btn {
-    justify-self: start;
-    display: inline-block; background: var(--accent); color: var(--accent-ink);
+    justify-self: start; display: inline-block;
+    background: var(--accent); color: var(--accent-ink);
     font-weight: 800; font-size: .9rem; letter-spacing: .04em;
     text-transform: uppercase; text-decoration: none;
     padding: .9rem 1.6rem; border-radius: 3px;
@@ -166,223 +129,166 @@
   .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
   footer {
-    padding-block: 2rem 3rem;
-    border-top: 1px solid var(--line-soft);
+    padding-block: 2rem 3rem; border-top: 1px solid var(--line-soft);
     color: var(--muted-2); font-size: .82rem; text-align: center;
   }
   footer a { color: var(--muted); }
-
-  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 
 <header>
   <div class="wrap">
     <div class="brandmark"><i>🌴</i> ONE PALM</div>
-    <h1>План<br>переезда<br><span style="color:var(--accent)">по шагам</span></h1>
-    <p class="lede">Так выглядит план, который получает клиент после созвона. Всё разложено по датам от дня вылета: что делать, в каком порядке, сколько стоит и что из этого я закрываю сам.</p>
+    <h1>План переезда</h1>
+    <p class="lede">Один экран, на котором видно весь переезд: что делать, в каком порядке и к какой дате. Это то, что клиент получает после созвона.</p>
     <div class="sample">
-      <b>Это образец.</b> Здесь стандартный сценарий для пары без детей. В вашем плане будут ваши даты, ваш бюджет, ваши варианты жилья и ваш тип визы под то, чем вы занимаетесь.
+      <b>Это образец.</b> Здесь стандартный сценарий для пары без детей. В вашей схеме будут ваши даты, ваш бюджет, ваши варианты жилья и виза под то, чем вы занимаетесь.
     </div>
   </div>
 </header>
 
-<main class="wrap">
+<div class="wrap board">
+  <div class="legend">
+    <span><b>★</b> это делаю я</span>
+    <span>● это на вас, я подсказываю как</span>
+  </div>
+  <div class="scroller">
+<svg class="map" viewBox="0 0 2524 940" role="img" aria-label="Роудмеп переезда по шагам" xmlns="http://www.w3.org/2000/svg">
+<title>План переезда по шагам</title>
+<line x1="60" y1="470" x2="2464" y2="470" class="spine"/>
+<text x="60" y="448" class="spine-cap">старт</text>
+<text x="2464" y="448" class="spine-cap end">жизнь</text>
+<line x1="190" y1="470" x2="190" y2="392" class="link"/>
+<circle cx="190" cy="470" r="11" class="dot"/>
+<text x="190" y="514" class="when">Д-60</text>
+<rect x="69" y="218" width="242" height="174" rx="10" class="card"/>
+<rect x="69" y="218" width="4" height="174" rx="2" class="edge"/>
+<text x="89" y="251" class="ttl">ДОКУМЕНТЫ</text>
+<circle cx="92" cy="276" r="3" class="bullet"/>
+<text x="105" y="281" class="itm">загран, запас 6 месяцев</text>
+<circle cx="92" cy="306" r="3" class="bullet"/>
+<text x="105" y="311" class="itm">несудимость + апостиль</text>
+<circle cx="92" cy="336" r="3" class="bullet"/>
+<text x="105" y="341" class="itm">доверенности</text>
+<circle cx="92" cy="366" r="3" class="bullet"/>
+<text x="105" y="371" class="itm">МВУ, неделя</text>
+<line x1="458" y1="470" x2="458" y2="548" class="link"/>
+<circle cx="458" cy="470" r="11" class="dot"/>
+<text x="458" y="440" class="when">Д-30</text>
+<rect x="337" y="548" width="242" height="174" rx="10" class="card"/>
+<rect x="337" y="548" width="4" height="174" rx="2" class="edge"/>
+<text x="357" y="581" class="ttl">ДЕНЬГИ И ЖИЛЬЁ</text>
+<circle cx="360" cy="606" r="3" class="bullet mine"/>
+<text x="373" y="611" class="itm mine">квартиры по видео</text>
+<circle cx="360" cy="636" r="3" class="bullet mine"/>
+<text x="373" y="641" class="itm mine">страховка</text>
+<circle cx="360" cy="666" r="3" class="bullet"/>
+<text x="373" y="671" class="itm">банк с иностр. IP</text>
+<circle cx="360" cy="696" r="3" class="bullet"/>
+<text x="373" y="701" class="itm">симку РФ не терять</text>
+<line x1="726" y1="470" x2="726" y2="392" class="link"/>
+<circle cx="726" cy="470" r="11" class="dot"/>
+<text x="726" y="514" class="when">Д-14</text>
+<rect x="605" y="248" width="242" height="144" rx="10" class="card"/>
+<rect x="605" y="248" width="4" height="144" rx="2" class="edge"/>
+<text x="625" y="281" class="ttl">ЛОГИСТИКА</text>
+<circle cx="628" cy="306" r="3" class="bullet"/>
+<text x="641" y="311" class="itm">отель на 3 дня</text>
+<circle cx="628" cy="336" r="3" class="bullet"/>
+<text x="641" y="341" class="itm">eSIM до вылета</text>
+<circle cx="628" cy="366" r="3" class="bullet mine"/>
+<text x="641" y="371" class="itm mine">бронь обратного</text>
+<line x1="994" y1="470" x2="994" y2="548" class="link"/>
+<circle cx="994" cy="470" r="11" class="dot"/>
+<text x="994" y="440" class="when">Д-3</text>
+<rect x="873" y="548" width="242" height="174" rx="10" class="card"/>
+<rect x="873" y="548" width="4" height="174" rx="2" class="edge"/>
+<text x="893" y="581" class="ttl">ПРОВЕРКА</text>
+<circle cx="896" cy="606" r="3" class="bullet mine"/>
+<text x="909" y="611" class="itm mine">TDAC, аррайвал-карта</text>
+<circle cx="896" cy="636" r="3" class="bullet"/>
+<text x="909" y="641" class="itm">распечатки</text>
+<circle cx="896" cy="666" r="3" class="bullet"/>
+<text x="909" y="671" class="itm">4 копии паспорта</text>
+<circle cx="896" cy="696" r="3" class="bullet mine"/>
+<text x="909" y="701" class="itm mine">что говорить на границе</text>
+<line x1="1262" y1="470" x2="1262" y2="392" class="link"/>
+<circle cx="1262" cy="470" r="11" class="dot"/>
+<text x="1262" y="514" class="when">ДЕНЬ 1</text>
+<rect x="1141" y="248" width="242" height="144" rx="10" class="card"/>
+<rect x="1141" y="248" width="4" height="144" rx="2" class="edge"/>
+<text x="1161" y="281" class="ttl">ПРИЛЁТ</text>
+<circle cx="1164" cy="306" r="3" class="bullet mine"/>
+<text x="1177" y="311" class="itm mine">встречаю в аэропорту</text>
+<circle cx="1164" cy="336" r="3" class="bullet mine"/>
+<text x="1177" y="341" class="itm mine">обмен без потерь</text>
+<circle cx="1164" cy="366" r="3" class="bullet"/>
+<text x="1177" y="371" class="itm">симка AIS</text>
+<line x1="1530" y1="470" x2="1530" y2="548" class="link"/>
+<circle cx="1530" cy="470" r="11" class="dot"/>
+<text x="1530" y="440" class="when">ДЕНЬ 2-3</text>
+<rect x="1409" y="548" width="242" height="144" rx="10" class="card"/>
+<rect x="1409" y="548" width="4" height="144" rx="2" class="edge"/>
+<text x="1429" y="581" class="ttl">ЖИЛЬЁ</text>
+<circle cx="1432" cy="606" r="3" class="bullet mine"/>
+<text x="1445" y="611" class="itm mine">смотрим вживую</text>
+<circle cx="1432" cy="636" r="3" class="bullet mine"/>
+<text x="1445" y="641" class="itm mine">проверяю договор</text>
+<circle cx="1432" cy="666" r="3" class="bullet"/>
+<text x="1445" y="671" class="itm">депозит и фото</text>
+<line x1="1798" y1="470" x2="1798" y2="392" class="link"/>
+<circle cx="1798" cy="470" r="11" class="dot"/>
+<text x="1798" y="514" class="when">ДЕНЬ 4-7</text>
+<rect x="1677" y="218" width="242" height="174" rx="10" class="card"/>
+<rect x="1677" y="218" width="4" height="174" rx="2" class="edge"/>
+<text x="1697" y="251" class="ttl">БЫТ</text>
+<circle cx="1700" cy="276" r="3" class="bullet mine"/>
+<text x="1713" y="281" class="itm mine">байк или авто</text>
+<circle cx="1700" cy="306" r="3" class="bullet mine"/>
+<text x="1713" y="311" class="itm mine">тайские права</text>
+<circle cx="1700" cy="336" r="3" class="bullet"/>
+<text x="1713" y="341" class="itm">навигатор по острову</text>
+<circle cx="1700" cy="366" r="3" class="bullet"/>
+<text x="1713" y="371" class="itm">комьюнити</text>
+<line x1="2066" y1="470" x2="2066" y2="548" class="link"/>
+<circle cx="2066" cy="470" r="11" class="dot"/>
+<text x="2066" y="440" class="when">МЕСЯЦ 1-3</text>
+<rect x="1945" y="548" width="242" height="174" rx="10" class="card"/>
+<rect x="1945" y="548" width="4" height="174" rx="2" class="edge"/>
+<text x="1965" y="581" class="ttl">ВИЗА</text>
+<circle cx="1968" cy="606" r="3" class="bullet"/>
+<text x="1981" y="611" class="itm">60 дней на границе</text>
+<circle cx="1968" cy="636" r="3" class="bullet"/>
+<text x="1981" y="641" class="itm">+30 дней, 1900 ฿</text>
+<circle cx="1968" cy="666" r="3" class="bullet"/>
+<text x="1981" y="671" class="itm">бордерран 4700 ฿</text>
+<circle cx="1968" cy="696" r="3" class="bullet mine"/>
+<text x="1981" y="701" class="itm mine">дальше ED</text>
+<line x1="2334" y1="470" x2="2334" y2="392" class="link"/>
+<circle cx="2334" cy="470" r="11" class="dot"/>
+<text x="2334" y="514" class="when">БЮДЖЕТ</text>
+<rect x="2213" y="248" width="242" height="144" rx="10" class="card"/>
+<rect x="2213" y="248" width="4" height="144" rx="2" class="edge"/>
+<text x="2233" y="281" class="ttl">НА ПАРУ</text>
+<circle cx="2236" cy="306" r="3" class="bullet"/>
+<text x="2249" y="311" class="itm">старт $3000-4000</text>
+<circle cx="2236" cy="336" r="3" class="bullet"/>
+<text x="2249" y="341" class="itm">месяц $2000-3000</text>
+<circle cx="2236" cy="366" r="3" class="bullet"/>
+<text x="2249" y="371" class="itm">подушка 3 месяца</text>
+</svg>
+  </div>
+  <p class="hint">Схему можно листать вбок. Слева направо: от подготовки дома до жизни на острове.</p>
+</div>
 
-  <section>
-    <h2>Подготовка, пока вы ещё дома</h2>
-    <p class="note">Самая дорогая ошибка тут это тянуть с документами, которые делаются месяц.</p>
-
-    <div class="road">
-
-      <div class="phase key">
-        <div class="card">
-          <div class="when">за 2 месяца · Д-60</div>
-          <h3>Документы, которые долго делаются</h3>
-          <ul>
-            <li><b>Загранпаспорт:</b> проверяем срок, нужно минимум 6 месяцев на день въезда</li>
-            <li><b>Справка о несудимости с апостилем:</b> около месяца, из-за границы получить почти невозможно</li>
-            <li><b>Апостиль на диплом и аттестат</b>, если планируете работу или учёбу</li>
-            <li><b>Доверенность</b> на близкого человека в России, отдельная на квартиру, если оставляете</li>
-            <li><b>Международные права (МВУ):</b> около недели, нужны для аренды транспорта</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="phase">
-        <div class="card">
-          <div class="when">за месяц · Д-30</div>
-          <h3>Деньги, страховка, первый созвон по жилью</h3>
-          <ul>
-            <li><b>Подбираю варианты жилья</b> под ваш бюджет и район, показываю квартиры по видео живьём <span class="mine">делаю я</span></li>
-            <li><b>Страховка:</b> оформляем на весь срок первого въезда <span class="mine">делаю я</span></li>
-            <li><b>Банки:</b> проверяете вход в онлайн-банк с иностранного IP, двухфакторка на рабочий номер</li>
-            <li><b>Российскую симку не выбрасывать,</b> перевести на самый дешёвый тариф</li>
-            <li>Сканы всех документов в облако плюс папка на телефоне без интернета</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="phase">
-        <div class="card">
-          <div class="when">за 2 недели · Д-14</div>
-          <h3>Логистика прилёта</h3>
-          <ul>
-            <li><b>Бронь временного жилья</b> на первые 2-3 дня, пока не посмотрели квартиру вживую</li>
-            <li><b>eSIM</b> покупаете заранее, включаете как сели в самолёт, интернет нужен уже в аэропорту</li>
-            <li><b>Бронь обратного билета</b> на каждого человека, спрашивают на паспортном контроле <span class="mine">делаю я</span></li>
-            <li>Билеты, багаж, что летит в ручной клади</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="phase key">
-        <div class="card">
-          <div class="when">за 3 дня · Д-3</div>
-          <h3>Последняя проверка</h3>
-          <ul>
-            <li><b>TDAC, аррайвал-карта</b> заполняется до въезда на каждого <span class="mine">делаю я</span></li>
-            <li><b>Распечатки:</b> страховка на английском, бронь жилья, бронь обратного билета</li>
-            <li><b>3-4 бумажные копии паспорта,</b> тут их просят постоянно</li>
-            <li>Разбираем, что говорить на паспортном контроле, и с той, и с другой стороны</li>
-            <li>Сверяем правила въезда ещё раз, они меняются <span class="mine">делаю я</span></li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section>
-    <h2>Первая неделя на острове</h2>
-    <p class="note">Тут я рядом физически, а не по переписке.</p>
-
-    <div class="road">
-
-      <div class="phase key">
-        <div class="card">
-          <div class="when">день 1 · прилёт</div>
-          <h3>Встреча и заселение</h3>
-          <ul>
-            <li><b>Встречаю в аэропорту</b>, довожу до временного жилья <span class="mine">делаю я</span></li>
-            <li><b>Наличные:</b> где менять по нормальному курсу, а где не надо</li>
-            <li><b>Тайская симка</b> в официальном магазине, а не на стойке в аэропорту, там переплата</li>
-            <li>Первый ужин и отдых, дела с утра</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="phase">
-        <div class="card">
-          <div class="when">день 2-3</div>
-          <h3>Жильё вживую и договор</h3>
-          <ul>
-            <li><b>Смотрим отобранные квартиры вживую</b>, выбираете <span class="mine">делаю я</span></li>
-            <li><b>Проверяю договор,</b> чтобы депозит потом вернулся <span class="mine">делаю я</span></li>
-            <li>Депозит и первый месяц, счётчики, интернет, что фиксируем на фото при заезде</li>
-            <li>Заселение и закупка на первое время</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="phase">
-        <div class="card">
-          <div class="when">день 4-7</div>
-          <h3>Транспорт и быт</h3>
-          <ul>
-            <li><b>Байк или машина</b> у проверенных людей: техсостояние, страховка, договор <span class="mine">делаю я</span></li>
-            <li><b>Тайские права:</b> записываю на окно, говорю дату, когда подтвердят <span class="mine">делаю я</span></li>
-            <li>Навигатор по острову: магазины, рынки, клиники, где что дешевле</li>
-            <li>Знакомлю с комьюнити, волейбол, спортзал, свои места</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section>
-    <h2>Легальное пребывание</h2>
-    <p class="note">Схема на первый год, без визы заранее. Всё это я держу на контроле и напоминаю за неделю.</p>
-
-    <div class="road">
-
-      <div class="phase">
-        <div class="card">
-          <div class="when">день 0</div>
-          <h3>Въезд по безвизу</h3>
-          <ul>
-            <li>Сразу дают <b>60 дней</b> на границе, виза заранее не нужна</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="phase">
-        <div class="card">
-          <div class="when">день 55-60</div>
-          <h3>Продление в иммиграции Пхукета</h3>
-          <ul>
-            <li><b>Плюс 30 дней,</b> около 1900 ฿, делается на месте</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="phase">
-        <div class="card">
-          <div class="when">день 85-90</div>
-          <h3>Бордерран</h3>
-          <ul>
-            <li>Выезд и въезд, <b>около 4700 ฿</b> с человека, дальше снова 60 плюс 30</li>
-            <li>В среднем это <b>около 2200 ฿ в месяц</b> на визовые, закладываем сразу</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="phase key">
-        <div class="card">
-          <div class="when">дальше</div>
-          <h3>Переход на нормальную визу</h3>
-          <ul>
-            <li>Въезд по безвизу это всегда решение офицера, и число въездов за год ограничено. При постоянной жизни рано или поздно дадут меньше дней</li>
-            <li>Поэтому дальше <b>студенческая (ED) или другая виза</b> под то, чем вы занимаетесь. Подбираю тип и передаю проверенному партнёру</li>
-            <li>На туристическом статусе тайский счёт не открыть, это тоже решается визой</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section>
-    <h2>Бюджет, ориентир на пару</h2>
-    <p class="note">Реальные цифры, а не средние по интернету. В вашем плане они будут пересчитаны под ваш город вылета, район и запросы.</p>
-
-    <div class="money">
-      <div class="row"><span>Жильё: 2 депозита плюс первый месяц</span><i>$1200-1800</i></div>
-      <div class="row"><span>Транспорт: байк или машина, депозит и первый месяц</span><i>$300-700</i></div>
-      <div class="row"><span>Страховка на двоих, первый месяц</span><i>от $110</i></div>
-      <div class="row"><span>Бронь обратных билетов, 2 человека</span><i>около $30</i></div>
-      <div class="row"><span>Симки, права, бытовой старт</span><i>$200-400</i></div>
-      <div class="row total"><span>Старт на пару, разово</span><i>$3000-4000</i></div>
-    </div>
-
-    <div class="money" style="margin-top:.9rem">
-      <div class="row total"><span>Комфортная жизнь на двоих, в месяц</span><i>$2000-3000</i></div>
-    </div>
-
-    <div class="sample" style="margin-top:1rem">
-      Отдельно закладываем <b>подушку на 2-3 месяца жизни</b>. Не «на первый месяц и разберусь»: именно на этом чаще всего ломаются переезды.
-    </div>
-  </section>
-
+<div class="wrap">
   <section>
     <div class="cta">
-      <h2>Хотите такой план под себя</h2>
-      <p>Созваниваемся, разбираем вашу ситуацию, и я собираю такой же план с вашими датами, бюджетом и вариантами жилья. Плюс все чек-листы и доступ в закрытый канал.</p>
+      <h2>Хотите такую схему под себя</h2>
+      <p>Созваниваемся, разбираем вашу ситуацию, и я собираю такую же схему с вашими датами, бюджетом и вариантами жилья. Плюс все чек-листы и доступ в закрытый канал.</p>
       <a class="btn" href="https://t.me/OnePalmPhuket_bot?start=plan">Составить план</a>
     </div>
   </section>
-
-</main>
+</div>
 
 <footer>
   ONE PALM · <a href="/">onepalm.club</a> · <a href="/documents/">Чек-лист документов</a> · <a href="/navigator/">Навигатор по Пхукету</a>
