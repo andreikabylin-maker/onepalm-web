@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ONE PALM · Чек-лист документов до вылета</title>
+<meta name="description" content="Что подготовить до вылета в Таиланд: без чего не пустят, личные документы, дети, животные, доверенности, деньги и доступы.">
+<link rel="canonical" href="https://onepalm.club/documents/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ONE PALM">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="ONE PALM · Чек-лист документов до вылета">
+<meta property="og:description" content="Что подготовить до вылета в Таиланд: без чего не пустят, личные документы, дети, животные, доверенности, деньги и доступы.">
+<meta property="og:url" content="https://onepalm.club/documents/">
+<meta property="og:image" content="https://onepalm.club/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%8C%B4</text></svg>">
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0}
+</style>
+</head>
+<body>
+<style>
+  :root {
+    color-scheme: dark;
+    --ink:        #0B110E;
+    --surface:    #131C17;
+    --surface-2:  #18231D;
+    --line:       #263329;
+    --line-soft:  #1E2A23;
+    --text:       #EAE5D7;
+    --muted:      #92A395;
+    --muted-2:    #6E7F73;
+    --accent:     #F5C842;
+    --accent-ink: #1A1405;
+    --accent-dim: #6E5C17;
+    --alarm:      #E4785C;
+    --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+  ::selection { background: var(--accent); color: var(--accent-ink); }
+  a { color: var(--accent); }
+
+  .wrap { width: 100%; max-width: 46rem; margin-inline: auto; padding-inline: 1.2rem; }
+
+  header {
+    padding: 2.6rem 0 2rem;
+    background: radial-gradient(80% 60% at 50% 0%, rgba(245,200,66,.12), rgba(245,200,66,0) 70%);
+  }
+  .brandmark {
+    display: inline-flex; align-items: baseline; gap: .5rem;
+    font-size: .74rem; font-weight: 800; letter-spacing: .3em;
+    text-transform: uppercase; color: var(--text);
+  }
+  .brandmark i { font-style: normal; color: var(--accent); letter-spacing: 0; font-size: 1rem; }
+
+  h1 {
+    margin: .8rem 0 .6rem;
+    font-size: clamp(1.9rem, 7vw, 2.8rem);
+    font-weight: 800; letter-spacing: -0.035em; line-height: 1;
+    text-transform: uppercase; text-wrap: balance;
+  }
+  .lede { color: var(--muted); margin: 0; font-size: 1.02rem; }
+
+  section { padding-block: 2.2rem; border-top: 1px solid var(--line-soft); }
+
+  h2 {
+    margin: 0 0 .3rem;
+    font-size: 1.15rem; font-weight: 800;
+    letter-spacing: -0.02em; text-transform: uppercase;
+  }
+  h2 .num { color: var(--accent); margin-right: .4rem; }
+  .note { margin: 0 0 1.1rem; font-size: .87rem; color: var(--muted); }
+
+  /* progress */
+
+  .progress {
+    position: sticky; top: 0; z-index: 5;
+    background: rgba(11,17,14,.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .progress .wrap {
+    display: flex; align-items: center; gap: .8rem;
+    padding-block: .7rem;
+  }
+  .bar { flex: 1; height: 5px; background: var(--line); border-radius: 99px; overflow: hidden; }
+  .bar span { display: block; height: 100%; width: 0; background: var(--accent); transition: width .2s ease; }
+  .count {
+    font-size: .78rem; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--muted);
+    font-variant-numeric: tabular-nums; white-space: nowrap;
+  }
+  .reset {
+    background: none; border: 1px solid var(--line); color: var(--muted-2);
+    font: inherit; font-size: .72rem; font-weight: 700; letter-spacing: .06em;
+    text-transform: uppercase; padding: .25rem .5rem; border-radius: 3px; cursor: pointer;
+  }
+  .reset:hover { color: var(--accent); border-color: var(--accent-dim); }
+
+  /* checklist */
+
+  .list { display: grid; gap: .5rem; }
+
+  .item {
+    display: grid; grid-template-columns: 1.4rem 1fr; gap: .8rem;
+    align-items: start;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: .85rem .95rem;
+    cursor: pointer;
+  }
+  .item:hover { background: var(--surface-2); }
+  .item.hot { border-left: 3px solid var(--alarm); }
+  .item input {
+    appearance: none; -webkit-appearance: none;
+    width: 1.4rem; height: 1.4rem; margin: 0;
+    border: 1px solid var(--line); border-radius: 3px;
+    background: var(--ink); cursor: pointer;
+    display: grid; place-items: center;
+  }
+  .item input:checked { background: var(--accent); border-color: var(--accent); }
+  .item input:checked::after {
+    content: ""; width: .42rem; height: .78rem;
+    border: solid var(--accent-ink); border-width: 0 2.5px 2.5px 0;
+    transform: translateY(-1px) rotate(45deg);
+  }
+  .item input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .item b { display: block; font-size: .97rem; font-weight: 600; }
+  .item p { margin: .12rem 0 0; font-size: .84rem; color: var(--muted); line-height: 1.4; }
+  .item:has(input:checked) b { color: var(--muted-2); text-decoration: line-through; }
+  .item:has(input:checked) p { color: var(--muted-2); }
+  .tag {
+    display: inline-block; margin-top: .45rem;
+    font-size: .68rem; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--accent);
+    border: 1px solid var(--accent-dim); border-radius: 3px;
+    padding: .15rem .4rem;
+  }
+
+  .plain { display: grid; gap: .55rem; }
+  .plain div {
+    background: var(--surface); border: 1px solid var(--line);
+    border-left: 3px solid var(--accent-dim);
+    border-radius: 4px; padding: .8rem .95rem;
+  }
+  .plain b { display: block; font-size: .95rem; }
+  .plain span { display: block; font-size: .84rem; color: var(--muted); margin-top: .1rem; }
+
+  .flagnote {
+    border: 1px dashed var(--accent-dim);
+    border-radius: 4px; padding: .9rem 1rem; margin-top: 1rem;
+    font-size: .85rem; color: var(--muted);
+    background: rgba(245,200,66,.05);
+  }
+
+  .cta { display: grid; gap: .7rem; }
+  .cta p { margin: 0; color: var(--muted); font-size: .95rem; }
+  .btn {
+    justify-self: start;
+    display: inline-block; background: var(--accent); color: var(--accent-ink);
+    font-weight: 800; font-size: .9rem; letter-spacing: .04em;
+    text-transform: uppercase; text-decoration: none;
+    padding: .9rem 1.6rem; border-radius: 3px;
+  }
+  .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  footer {
+    padding-block: 2rem 3rem;
+    border-top: 1px solid var(--line-soft);
+    color: var(--muted-2); font-size: .82rem; text-align: center;
+  }
+  footer a { color: var(--muted); }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  @media print {
+    .progress, .cta, .btn { display: none; }
+    body { background: #fff; color: #000; }
+    .item, .plain div { background: #fff; border-color: #ccc; }
+  }
+</style>
+
+<header>
+  <div class="wrap">
+    <div class="brandmark"><i>🌴</i> ONE PALM</div>
+    <h1>Чек-лист<br>документов<br><span style="color:var(--accent)">до вылета</span></h1>
+    <p class="lede">Пройдите сверху вниз и отметьте галочками. Если по какому-то пункту непонятно, не гадайте, спросите меня, тг в самом низу.</p>
+  </div>
+</header>
+
+<div class="progress">
+  <div class="wrap">
+    <div class="bar"><span id="fill"></span></div>
+    <div class="count" id="count">0 / 0</div>
+    <button class="reset" id="reset" type="button">Сброс</button>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <section>
+    <h2><span class="num">1</span>Без этого могут не пустить</h2>
+    <p class="note">Самый дорогой блок: ошибка тут это сорванный вылет или разворот на границе.</p>
+    <div class="list">
+
+      <label class="item hot">
+        <input type="checkbox">
+        <div>
+          <b>Загранпаспорт</b>
+          <p>Срок действия не меньше 6 месяцев на день въезда. Проверьте прямо сейчас, это самая частая причина сорванного вылета.</p>
+        </div>
+      </label>
+
+      <label class="item hot">
+        <input type="checkbox">
+        <div>
+          <b>Бронь обратного или onward-билета</b>
+          <p>На каждого человека, включая детей. Спрашивают и на регистрации, и на паспортном контроле в Таиланде. Настоящий билет выкупать не нужно, берётся бронь, стоит около 1500 руб.</p>
+          <span class="tag">входит в переезд под ключ</span>
+        </div>
+      </label>
+
+      <label class="item hot">
+        <input type="checkbox">
+        <div>
+          <b>TDAC, аррайвал-карта</b>
+          <p>Заполняется до въезда на каждого. Нужны данные паспортов и адрес первого жилья.</p>
+          <span class="tag">входит в переезд под ключ</span>
+        </div>
+      </label>
+
+      <label class="item hot">
+        <input type="checkbox">
+        <div>
+          <b>Страховой полис</b>
+          <p>Распечатка на английском, на весь срок первого въезда.</p>
+          <span class="tag">входит в переезд под ключ</span>
+        </div>
+      </label>
+
+      <label class="item">
+        <input type="checkbox">
+        <div>
+          <b>Подтверждение проживания</b>
+          <p>Бронь отеля или договор аренды на первые дни. Нужно знать адрес дома или отеля, могут спросить на границе.</p>
+        </div>
+      </label>
+
+      <label class="item">
+        <input type="checkbox">
+        <div>
+          <b>Наличные</b>
+          <p>Формально могут попросить показать средства. Спрашивают редко, показываем наличные.</p>
+        </div>
+      </label>
+
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span>Личные документы</h2>
+    <div class="list">
+
+      <label class="item"><input type="checkbox"><div><b>Внутренний паспорт РФ</b></div></label>
+
+      <label class="item"><input type="checkbox"><div><b>Водительское удостоверение РФ</b></div></label>
+
+      <label class="item">
+        <input type="checkbox">
+        <div>
+          <b>Международное водительское (МВУ)</b>
+          <p>Делается около недели. Нужно для аренды транспорта и пригодится при сдаче на тайские права.</p>
+        </div>
+      </label>
+
+      <label class="item">
+        <input type="checkbox">
+        <div>
+          <b>Свидетельство о браке, если есть</b>
+          <p>Плюс нотариальный перевод на английский.</p>
+        </div>
+      </label>
+
+      <label class="item">
+        <input type="checkbox">
+        <div>
+          <b>Военный билет или приписное</b>
+          <p>Мужчинам, могут спросить при выезде.</p>
+        </div>
+      </label>
+
+      <label class="item">
+        <input type="checkbox">
+        <div>
+          <b>Копии СНИЛС и ИНН</b>
+          <p>Можно сделать на месте.</p>
+        </div>
+      </label>
+
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span>Если едете с детьми</h2>
+    <div class="list">
+
+      <label class="item hot">
+        <input type="checkbox">
+        <div>
+          <b>Нотариальное согласие второго родителя на выезд</b>
+          <p>Если ребёнок летит только с одним из родителей. Без него могут не выпустить из России.</p>
+        </div>
+      </label>
+
+      <label class="item">
+        <input type="checkbox">
+        <div><b>Свидетельство о рождении</b><p>Оригинал на каждого ребёнка.</p></div>
+      </label>
+
+      <label class="item">
+        <input type="checkbox">
+        <div><b>Медкарта и прививочный сертификат плюс перевод</b><p>Нужно для школы или садика.</p></div>
+      </label>
+
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">4</span>Если едете с животным</h2>
+    <div class="list">
+
+      <label class="item">
+        <input type="checkbox">
+        <div>
+          <b>Ветпаспорт, чип, прививка от бешенства</b>
+          <p>Прививка сделана не позже чем за 30 дней до вылета и не раньше года.</p>
+        </div>
+      </label>
+
+      <label class="item">
+        <input type="checkbox">
+        <div>
+          <b>Справка формы 1 из государственной ветклиники</b>
+          <p>Меняется на международный сертификат в аэропорту вылета.</p>
+        </div>
+      </label>
+
+      <label class="item">
+        <input type="checkbox">
+        <div><b>Разрешение на ввоз животного в Таиланд</b><p>Оформляется заранее.</p></div>
+      </label>
+
+      <label class="item">
+        <input type="checkbox">
+        <div><b>Правила перевозки у авиакомпании и размер переноски</b></div>
+      </label>
+
+    </div>
+    <div class="flagnote">Требования по животным меняются чаще всего, сверяем перед самым вылетом.</div>
+  </section>
+
+  <section>
+    <h2><span class="num">5</span>Сделать заранее, потом будет дорого и долго</h2>
+    <div class="list">
+
+      <label class="item hot">
+        <input type="checkbox">
+        <div>
+          <b>Справка о несудимости с апостилем</b>
+          <p>Делается около месяца. Из-за границы получить почти невозможно.</p>
+        </div>
+      </label>
+
+      <label class="item"><input type="checkbox"><div><b>Апостиль на диплом и аттестат</b></div></label>
+
+      <label class="item">
+        <input type="checkbox">
+        <div>
+          <b>Доверенность на близкого человека в России</b>
+          <p>Распоряжаться имуществом, получать документы, представлять вас в госорганах.</p>
+        </div>
+      </label>
+
+      <label class="item">
+        <input type="checkbox">
+        <div>
+          <b>Отдельная доверенность на продажу или сдачу квартиры</b>
+          <p>Если оставляете недвижимость.</p>
+        </div>
+      </label>
+
+      <label class="item"><input type="checkbox"><div><b>Нотариальные переводы всего перечисленного</b></div></label>
+
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">6</span>Деньги и доступы</h2>
+    <div class="list">
+
+      <label class="item">
+        <input type="checkbox">
+        <div><b>Проверьте вход в онлайн-банк с иностранного IP до отъезда</b></div>
+      </label>
+
+      <label class="item">
+        <input type="checkbox">
+        <div>
+          <b>Двухфакторная авторизация привязана к рабочему номеру</b>
+          <p>Российскую симку не выбрасывайте, держите активной. Попросите оператора не брать деньги за роуминг и перевести на самый бюджетный тариф.</p>
+        </div>
+      </label>
+
+      <label class="item"><input type="checkbox"><div><b>Проверьте вход в Госуслуги</b></div></label>
+
+      <label class="item">
+        <input type="checkbox">
+        <div>
+          <b>Сканы всех документов в облако</b>
+          <p>Плюс отдельная папка на телефоне, доступная без интернета.</p>
+        </div>
+      </label>
+
+      <label class="item">
+        <input type="checkbox">
+        <div><b>3-4 бумажные копии паспорта</b><p>Тут их просят постоянно.</p></div>
+      </label>
+
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">7</span>Что не нужно</h2>
+    <p class="note">На это часто тратят время и деньги зря.</p>
+    <div class="plain">
+      <div>
+        <b>Виза заранее</b>
+        <span>Вы влетаете по безвизу, у вас сразу 60 дней, потом продление ещё на 30 прямо на Пхукете.</span>
+      </div>
+      <div><b>Справка о прививках или ПЦР</b></div>
+      <div><b>Международный сертификат вакцинации</b></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="cta">
+      <h2>Остались вопросы</h2>
+      <p>Напишите мне, подскажу по любому пункту, где это делается быстрее всего. А если хотите, разберём вашу ситуацию целиком и составим план переезда с бюджетом под вас.</p>
+      <a class="btn" href="https://t.me/OnePalmPhuket_bot">Написать в Telegram</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  ONE PALM · <a href="/">onepalm.club</a> · <a href="/navigator/">Навигатор по Пхукету</a>
+</footer>
+
+<script>
+(function () {
+  var KEY = "onepalm-docs-v1";
+  var boxes = Array.prototype.slice.call(document.querySelectorAll(".item input"));
+  var fill = document.getElementById("fill");
+  var count = document.getElementById("count");
+  var saved = {};
+
+  try { saved = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { saved = {}; }
+
+  boxes.forEach(function (box, i) {
+    box.checked = !!saved[i];
+    box.addEventListener("change", function () { save(); render(); });
+  });
+
+  function save() {
+    var state = {};
+    boxes.forEach(function (box, i) { if (box.checked) state[i] = 1; });
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+  }
+
+  function render() {
+    var done = boxes.filter(function (b) { return b.checked; }).length;
+    fill.style.width = (done / boxes.length * 100) + "%";
+    count.textContent = done + " / " + boxes.length;
+  }
+
+  document.getElementById("reset").addEventListener("click", function () {
+    boxes.forEach(function (b) { b.checked = false; });
+    save(); render();
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>
